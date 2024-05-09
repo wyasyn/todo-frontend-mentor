@@ -23,29 +23,29 @@ export const metadata: Metadata = {
         apple: "/fav.png",
         icon: "/fav.png",
     },
-    // openGraph: {
-    //     images: [
-    //         {
-    //             url: "/twitter.jpg",
-    //             width: 1200,
-    //             height: 630,
-    //             alt: "todo",
-    //         },
-    //     ],
-    // },
-    // twitter: {
-    //     creator: "@wyasyn",
-    //     site: "@todo_app",
-    //     card: "summary_large_image",
-    //     images: [
-    //         {
-    //             url: "/twitter.jpg",
-    //             width: 1200,
-    //             height: 630,
-    //             alt: "todo",
-    //         },
-    //     ],
-    // },
+    openGraph: {
+        images: [
+            {
+                url: "/twitter.jpg",
+                width: 1200,
+                height: 630,
+                alt: "todo",
+            },
+        ],
+    },
+    twitter: {
+        creator: "@wyasyn",
+        site: "@todo_app",
+        card: "summary_large_image",
+        images: [
+            {
+                url: "/twitter.jpg",
+                width: 1200,
+                height: 630,
+                alt: "todo",
+            },
+        ],
+    },
 };
 
 export default async function RootLayout({
