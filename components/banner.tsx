@@ -18,6 +18,7 @@ export default function Banner() {
                     alt="banner"
                     priority
                     placeholder="blur"
+                    sizes="100vw"
                 />
             </div>
             <div className=" bg-slate-600 relative w-full h-full md:block hidden ">
@@ -28,6 +29,7 @@ export default function Banner() {
                     alt="banner"
                     priority
                     placeholder="blur"
+                    sizes="100vw"
                 />
             </div>
         </div>
