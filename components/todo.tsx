@@ -30,7 +30,9 @@ export default function Todo({
     };
     return (
         <li
-            className={`list-none capitalize px-6 py-4 group flex items-center justify-between gap-4 border-b border-border/50`}
+            className={`list-none capitalize px-6 py-4 group flex items-center justify-between gap-4 border-b border-border/50 ${
+                loading && " pointer-events-none "
+            }`}
         >
             <div
                 className="flex items-center gap-4 cursor-pointer"
