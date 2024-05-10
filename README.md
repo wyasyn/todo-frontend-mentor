@@ -18,8 +18,4 @@ This project is a front-end coding challenge from [Frontend Mentor](https://www.
 -   Toggle light and dark mode
 -   **Bonus**: Drag and drop to reorder items on the list
 
-## Feedback
-
-We love receiving feedback! If you have any suggestions or improvements, please email hi[at]frontendmentor[dot]io. This challenge is completely free, so share it with anyone who will find it useful for practice.
-
 **Have fun exploring!** 🚀
