@@ -1,5 +1,6 @@
 "use client";
-import { Check, X } from "lucide-react";
+import React, { useState } from "react";
+import { Check, Loader2, X } from "lucide-react";
 
 export interface TodoProps {
     id: string;
@@ -16,15 +17,24 @@ export default function Todo({
     toggleTodoCompletion,
     deleteTodoById,
 }: TodoProps) {
+    const [loading, setLoading] = useState(false);
+    const toggle = async () => {
+        try {
+            setLoading(true);
+            toggleTodoCompletion(id);
+        } catch (error) {
+            throw new Error();
+        } finally {
+            setLoading(false);
+        }
+    };
     return (
         <li
             className={`list-none capitalize px-6 py-4 group flex items-center justify-between gap-4 border-b border-border/50`}
         >
             <div
                 className="flex items-center gap-4 cursor-pointer"
-                onClick={() => {
-                    toggleTodoCompletion(id);
-                }}
+                onClick={() => toggle()}
             >
                 {completed ? (
                     <div className="bg-gradient-to-r from-first to-second aspect-square rounded-full p-1 text-white">
@@ -35,8 +45,14 @@ export default function Todo({
                         <div className="w-4 bg-card aspect-square rounded-full " />
                     </div>
                 )}
+
                 <p className={`${completed && "line-through text-muted"}`}>
-                    {title}
+                    {title}{" "}
+                    {loading && (
+                        <div className=" text-muted ">
+                            <Loader2 className="h-4 w-4 ml-4 animate-spin" />
+                        </div>
+                    )}
                 </p>
             </div>
             <div

@@ -1,4 +1,4 @@
-import { selectAllTodos } from "./action";
+import { selectAllTodos } from "../action";
 import List from "@/components/list";
 export const revalidate = 0;
 
@@ -8,5 +8,9 @@ export default async function Home() {
         return (
             <div className="px-6 py-4 text-muted">No Todos to display😕</div>
         );
-    return <List todos={todos} />;
+    return (
+        <>
+            <List todos={todos} />
+        </>
+    );
 }

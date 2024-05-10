@@ -54,4 +54,13 @@
     body {
         @apply bg-background text-foreground;
     }
+    ::-webkit-scrollbar {
+        @apply w-[0.725rem];
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-background;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-card border;
+    }
 }

@@ -25,13 +25,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
-    const count = await countActiveTodos();
-    if (!count) return 0;
+}) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body
@@ -58,11 +56,6 @@ export default async function RootLayout({
                             <AddTodo />
                             <div className=" mt-[2rem] bg-card rounded-lg overflow-clip shadow-xl ">
                                 <ul>{children}</ul>
-
-                                <Footer
-                                    count={count}
-                                    deleteCompletedTodos={deleteCompletedTodos}
-                                />
                             </div>
 
                             <p className=" my-[7rem] text-center text-muted ">
