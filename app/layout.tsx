@@ -34,7 +34,6 @@ export default async function RootLayout({
     if (!count) return 0;
     return (
         <html lang="en" suppressHydrationWarning>
-            <head />
             <body
                 className={cn(
                     "min-h-dvh font-sans antialiased text-sm ",
