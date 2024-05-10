@@ -87,6 +87,7 @@ export async function selectAllTodos() {
         return allTodos;
     } catch (error) {
         console.error("Error selecting all todos:", error);
+        throw error;
     }
 }
 
@@ -101,6 +102,7 @@ export async function selectActiveTodos() {
         return activeTodos;
     } catch (error) {
         console.error("Error selecting active todos:", error);
+        throw error;
     }
 }
 
@@ -116,6 +118,7 @@ export async function selectCompletedTodos() {
         return completedTodos;
     } catch (error) {
         console.error("Error selecting completed todos:", error);
+        throw error;
     }
 }
 
@@ -154,5 +157,6 @@ export async function countActiveTodos() {
         return count;
     } catch (error) {
         console.error("Error counting active todos:", error);
+        throw error;
     }
 }

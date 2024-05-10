@@ -7,7 +7,7 @@ import Banner from "@/components/banner";
 import { ModeToggle } from "@/components/mode-toggle";
 import AddTodo from "@/components/addTodo";
 import Footer from "@/components/footer";
-import { countActiveTodos } from "./action";
+import { countActiveTodos, deleteCompletedTodos } from "./action";
 
 const fontSans = FontSans({
     weight: ["400", "700"],
@@ -22,29 +22,6 @@ export const metadata: Metadata = {
     icons: {
         apple: "/fav.png",
         icon: "/fav.png",
-    },
-    openGraph: {
-        images: [
-            {
-                url: "/twitter.jpg",
-                width: 1200,
-                height: 630,
-                alt: "todo",
-            },
-        ],
-    },
-    twitter: {
-        creator: "@wyasyn",
-        site: "@todo_app",
-        card: "summary_large_image",
-        images: [
-            {
-                url: "/twitter.jpg",
-                width: 1200,
-                height: 630,
-                alt: "todo",
-            },
-        ],
     },
 };
 
@@ -81,8 +58,12 @@ export default async function RootLayout({
                             </header>
                             <AddTodo />
                             <div className=" mt-[2rem] bg-card rounded-lg overflow-clip shadow-xl ">
-                                {children}
-                                <Footer count={count} />
+                                <ul>{children}</ul>
+
+                                <Footer
+                                    count={count}
+                                    deleteCompletedTodos={deleteCompletedTodos}
+                                />
                             </div>
 
                             <p className=" my-[7rem] text-center text-muted ">

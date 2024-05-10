@@ -1,5 +1,4 @@
 "use client";
-import { deleteCompletedTodos } from "@/app/action";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,7 +17,13 @@ const links = [
     },
 ];
 
-export default function Footer({ count }: { count: number }) {
+export default function Footer({
+    count,
+    deleteCompletedTodos,
+}: {
+    count: number;
+    deleteCompletedTodos: () => void;
+}) {
     const pathname = usePathname();
     return (
         <footer className="flex items-center px-6 py-4 text-muted justify-between">
