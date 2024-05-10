@@ -16,15 +16,13 @@ export async function deleteCompletedTodos() {
             message: `Deleted ${deletedTodos.count} completed todos`,
         };
     } catch (error) {
-        return {
-            message: "Error deleting completed todos:",
-            error,
-        };
+        throw error;
     }
 }
 
 export async function addTodo(FormData: FormData) {
     const title = FormData.get("title") as string;
+    if (!title) return;
     try {
         const newTodo = await prisma.todo.create({
             data: {
@@ -39,14 +37,12 @@ export async function addTodo(FormData: FormData) {
             newTodo,
         };
     } catch (error) {
-        return {
-            message: "Error adding todo:",
-            error,
-        };
+        throw error;
     }
 }
 
 export async function toggleTodoCompletion(id: string) {
+    if (!id) return;
     try {
         const todo = await prisma.todo.findUnique({
             where: {
@@ -73,10 +69,7 @@ export async function toggleTodoCompletion(id: string) {
             updatedTodo,
         };
     } catch (error) {
-        return {
-            message: "Error toggling todo completion status:",
-            error,
-        };
+        throw error;
     }
 }
 
@@ -123,6 +116,7 @@ export async function selectCompletedTodos() {
 }
 
 export async function deleteTodoById(id: string) {
+    if (!id) return;
     try {
         const deletedTodo = await prisma.todo.delete({
             where: {
@@ -130,18 +124,13 @@ export async function deleteTodoById(id: string) {
             },
         });
         revalidatePath("/");
-        revalidatePath("/completed");
-        revalidatePath("/active");
 
         return {
             message: "Deleted todo:",
             deletedTodo,
         };
     } catch (error) {
-        return {
-            message: "Error deleting todo:",
-            error,
-        };
+        throw error;
     }
 }
 
