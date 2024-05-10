@@ -49,7 +49,7 @@ export default function Todo({
                 <p className={`${completed && "line-through text-muted"}`}>
                     {title}{" "}
                     {loading && (
-                        <div className=" text-muted ">
+                        <div className=" w-5 grid place-items-center rounded-full aspect-square text-muted ">
                             <Loader2 className="h-4 w-4 ml-4 animate-spin" />
                         </div>
                     )}
