@@ -6,8 +6,10 @@ export default async function Home({
 }: {
     children: React.ReactNode;
 }) {
-    const count = await countActiveTodos();
-    if (!count) return 0;
+    let count = await countActiveTodos();
+    if (!count) {
+        count = 0;
+    }
     return (
         <>
             {children}
