@@ -1,5 +1,6 @@
 import List from "@/components/list";
 import { selectCompletedTodos } from "../action";
+export const revalidate = 0;
 
 export default async function Home() {
     const todos = await selectCompletedTodos();
