@@ -26,7 +26,7 @@ export default function Footer({
 }) {
     const pathname = usePathname();
     return (
-        <footer className="flex items-center px-6 py-4 text-muted justify-between">
+        <footer className="flex items-center px-6 py-4 text-muted justify-between gap-4">
             <p>{count} items left</p>
             <ul className="flex items-center justify-center gap-4">
                 {links.map((link) => {
